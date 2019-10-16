@@ -29,6 +29,7 @@ dependencies {
 
     implementation 'com.amulyakhare:com.amulyakhare.textdrawable:1.0.1'
 
+    implementation 'me.dm7.barcodescanner:zxing:1.9.13'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'

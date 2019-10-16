@@ -53,13 +53,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     ImageView imageSearch, imageFilter;
     PresenterCompl presenterCompl;
 
-    int categoryIntent,activeIntent,mailCheck, nameCheck,all;
+    int categoryIntent,activeIntent,all;
     String name,mail = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         setContentView(R.layout.activity_main);
         presenterCompl = new PresenterCompl(this);
         init();
@@ -119,8 +118,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         activeIntent = getIntent().getIntExtra("Active",1000);
         name = getIntent().getStringExtra("Name");
         mail = getIntent().getStringExtra("Email");
-        mailCheck = getIntent().getIntExtra("CheckEmail",0);
-        nameCheck = getIntent().getIntExtra("CheckMaten",0);
         all = categoryIntent+activeIntent;
         Log.e("CHECK",all+"");
         if(all == 10||all == 0){
@@ -163,24 +160,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.botton1:
                 presenterCompl.displayDataToSearchingWithCategory(listPeople,"Khách hàng");
                 adapter.notifyDataSetChanged();
-                tvKhach.setTextColor(getResources().getColor(R.color.colorText_Red));
-                tvHuy.setTextColor(getResources().getColor(R.color.colorText_Blue));
-                tvNhacungcap.setTextColor(getResources().getColor(R.color.colorText_Blue));
-                bottomSheetDialog.dismiss();
+                setUpTextBottom(tvKhach,tvNhacungcap,tvHuy);
                 break;
             case R.id.botton_nhacungcap:
                 presenterCompl.displayDataToSearchingWithCategory(listPeople,"Nhà cung cấp");
                 adapter.notifyDataSetChanged();
-                tvNhacungcap.setTextColor(getResources().getColor(R.color.colorText_Red));
-                tvHuy.setTextColor(getResources().getColor(R.color.colorText_Blue));
-                tvKhach.setTextColor(getResources().getColor(R.color.colorText_Blue));
-                bottomSheetDialog.dismiss();
+                setUpTextBottom(tvNhacungcap,tvHuy,tvKhach);
                 break;
             case R.id.tvHuy:
-                bottomSheetDialog.dismiss();
-                tvHuy.setTextColor(getResources().getColor(R.color.colorText_Red));
-                tvKhach.setTextColor(getResources().getColor(R.color.colorText_Blue));
-                tvNhacungcap.setTextColor(getResources().getColor(R.color.colorText_Blue));
+                setUpTextBottom(tvHuy,tvKhach,tvNhacungcap);
                 break;
             case R.id.imageSearch:
                 Intent intent = new Intent(MainActivity.this, SearchActivity.class);
@@ -191,6 +179,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
 
+    }
+    public void setUpTextBottom(TextView tv1, TextView tv2, TextView tv3){
+        bottomSheetDialog.dismiss();
+        tv1.setTextColor(getResources().getColor(R.color.colorText_Red));
+        tv2.setTextColor(getResources().getColor(R.color.colorText_Blue));
+        tv3.setTextColor(getResources().getColor(R.color.colorText_Blue));
     }
 
     @Override

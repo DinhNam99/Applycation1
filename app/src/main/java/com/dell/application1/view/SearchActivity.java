@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,12 +24,12 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
     RelativeLayout layouTatca2, layoutKhachhang, layoutNhacc;
     EditText edMaten, edEmail;
     ImageView check1, check2, check3;
-    int checkCategory,checkActive,checkMaten,checkMail = 0;
+    int checkCategory,checkActive = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-        getWindow().setStatusBarColor(ContextCompat.getColor(SearchActivity.this, android.R.color.white));
+        getWindow().setStatusBarColor(Color.TRANSPARENT);
         View decorView = getWindow().getDecorView(); //set status background black
         decorView.setSystemUiVisibility(decorView.getSystemUiVisibility() & ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
         init();
@@ -79,11 +80,8 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
                 Intent intent2 = new Intent(SearchActivity.this, MainActivity.class);
                 intent2.putExtra("Category",checkCategory);
                 intent2.putExtra("Active",checkActive);
-
                 intent2.putExtra("Name",edMaten.getText().toString());
                 intent2.putExtra("Email",edEmail.getText().toString());
-                intent2.putExtra("CheckMaten",checkMaten);
-                intent2.putExtra("CheckEmail",checkMail);
                 startActivity(intent2);
                 finish();
                 break;
@@ -100,23 +98,17 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
                 checkCategory = 2;
                 break;
             case R.id.danghd:
-                tvDaghd.setBackgroundResource(R.drawable.draw_item_red);
-                tvNgunghd.setBackgroundResource(R.drawable.draw_item);
-                tvDaghd.setTextColor(getResources().getColor(android.R.color.white));
-                tvNgunghd.setTextColor(getResources().getColor(android.R.color.black));
+                setUpActive(tvNgunghd,tvDaghd);
                 checkActive = 10;
                 break;
             case R.id.ngunghd:
-                tvDaghd.setBackgroundResource(R.drawable.draw_item);
-                tvNgunghd.setBackgroundResource(R.drawable.draw_item_red);
-                tvDaghd.setTextColor(getResources().getColor(android.R.color.black));
-                tvNgunghd.setTextColor(getResources().getColor(android.R.color.white));
+                setUpActive(tvDaghd,tvNgunghd);
                 checkActive = 20;
                 break;
         }
     }
 
-    public void setUpClickCategory(TextView tv1, TextView tv2, TextView tv3, ImageView iv1, ImageView iv2, ImageView iv3){
+    private void setUpClickCategory(TextView tv1, TextView tv2, TextView tv3, ImageView iv1, ImageView iv2, ImageView iv3){
         tv1.setTextColor(getResources().getColor(android.R.color.black));
         tv2.setTextColor(getResources().getColor(R.color.colorText_light));
         tv3.setTextColor(getResources().getColor(R.color.colorText_light));
@@ -124,4 +116,11 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
         iv2.setVisibility(View.INVISIBLE);
         iv3.setVisibility(View.INVISIBLE);
     }
+    private void setUpActive(TextView tv1, TextView tv2){
+        tv1.setBackgroundResource(R.drawable.draw_item);
+        tv2.setBackgroundResource(R.drawable.draw_item_red);
+        tv1.setTextColor(getResources().getColor(android.R.color.black));
+        tv2.setTextColor(getResources().getColor(android.R.color.white));
+    }
+
 }

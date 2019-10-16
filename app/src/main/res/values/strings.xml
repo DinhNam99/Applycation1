@@ -19,4 +19,7 @@
     <string name="trangthai">Trạng thái</string>
     <string name="dang">Đang hoạt động</string>
     <string name="ngung">Ngừng hoạt động</string>
+    <string name="quet">Quét mã vạch</string>
+    <string name="dong">Đóng</string>
+    <string name="Datmaqr">Đặt mã QR vào trong khung để quét</string>
 </resources>
