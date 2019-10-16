@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Application1</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="khachhangnhacungcap">Khách hàng-Nhà cung cấp</string>
+    <string name="Khachhang">Khách hàng</string>
+    <string name="Nhacungcap">Nhà cung cấp</string>
+    <string name="Tong">Tổng</string>
+    <string name="Huy">Hủy</string>
+    <string name="Huybo">Hủy bỏ</string>
+    <string name="Adung">Áp dụng</string>
+    <string name="timkh">Tìm khách hàng</string>
+    <string name="timtheo">Tìm Theo</string>
+    <string name="maten">Mã, tên, điện thọai</string>
+    <string name="email">Email</string>
+    <string name="tatca">Tất cả</string>
+    <string name="nhom">Nhóm khách hàng</string>
+    <string name="loai">Loại khách hàng</string>
+    <string name="trangthai">Trạng thái</string>
+    <string name="dang">Đang hoạt động</string>
+    <string name="ngung">Ngừng hoạt động</string>
+</resources>

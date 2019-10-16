@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        app:title=""
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/layout_50"
+        android:background="@android:color/white"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        android:id="@+id/toolbar2"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Huybo"
+                android:textSize="@dimen/text_13"
+                android:textColor="@color/colorText_Red"
+                android:id="@+id/tvHuyBo"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/timkh"
+                android:textSize="@dimen/text_13"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/tvTim"
+                />
+            <TextView
+                android:layout_marginRight="@dimen/margin_small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Adung"
+                android:textSize="@dimen/text_13"
+                android:textColor="@color/colorText_Red"
+                android:layout_alignParentRight="true"
+                android:id="@+id/tvAdung"
+                />
+
+        </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
+</LinearLayout>
